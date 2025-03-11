@@ -235,3 +235,40 @@ print(f"Archivo guardado en: {ruta_archivo}")
 # ----------------------------------
 # 2. Gráficos de dispersión/Densidad
 # ----------------------------------
+# 11. Scatter plot básico
+plt.figure(figsize=(10, 6))
+x1, y1 = np.random.rand(100), np.random.rand(100)
+plt.scatter(x1, y1, alpha=0.7, edgecolors='k')
+plt.title("Gráfico de Dispersión Aleatorio")
+plt.xlabel("x"), plt.ylabel("y")
+print("x1:", x1)
+print("y1:", y1)
+plt.savefig("graficas_generadas1.jpg", dpi=300) # Alta resolución
+
+# 12. Scatter plot con y = sin(x) + ruido
+plt.figure(figsize=(10, 6))
+x2 = np.linspace(-2*np.pi, 2*np.pi, 100)
+y2 = np.sin(x2) + np.random.normal(0, 0.2, 100)
+plt.scatter(x2, y2, label=r"$y = \sin(x) + \mathcal{N}(0,0.2)$")
+plt.plot(x2, np.sin(x2), color='red', linewidth=2, label=r"$y = \sin(x)$")
+plt.title("Función Seno con Ruido Gaussiano")
+plt.legend()
+print("x2:", x2)
+print("y2:", y2)
+plt.savefig("graficas_generadas2.jpg", dpi=300) # Alta resolución
+
+# 13. Gráfico de contorno con meshgrid
+plt.figure(figsize=(10, 6))
+x3 = np.linspace(-5, 5, 100)
+y3 = np.linspace(-5, 5, 100)
+X, Y = np.meshgrid(x3, y3)
+Z = np.cos(X) + np.sin(Y)
+plt.contour(X, Y, Z, levels=20, cmap='viridis')
+plt.title(r"Gráfico de Contorno: $z = \cos(x) + \sin(y)$")
+print("x3:", x3)
+print("y3:", y3)
+print("X:", X)
+print("Y:", Y)
+print("Z:", Z)
+plt.savefig("graficas_generadas3.jpg", dpi=300) # Alta resolución
+
