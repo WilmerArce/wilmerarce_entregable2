@@ -243,7 +243,7 @@ plt.title("Gráfico de Dispersión Aleatorio")
 plt.xlabel("x"), plt.ylabel("y")
 print("x1:", x1)
 print("y1:", y1)
-plt.savefig("graficas_generadas1.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_11.jpg", dpi=300) # Alta resolución
 
 # 12. Scatter plot con y = sin(x) + ruido
 plt.figure(figsize=(10, 6))
@@ -255,7 +255,7 @@ plt.title("Función Seno con Ruido Gaussiano")
 plt.legend()
 print("x2:", x2)
 print("y2:", y2)
-plt.savefig("graficas_generadas2.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_12.jpg", dpi=300) # Alta resolución
 
 # 13. Gráfico de contorno con meshgrid
 plt.figure(figsize=(10, 6))
@@ -270,7 +270,7 @@ print("y3:", y3)
 print("X:", X)
 print("Y:", Y)
 print("Z:", Z)
-plt.savefig("graficas_generadas3.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_13.jpg", dpi=300) # Alta resolución
 
 # 14. Scatter con densidad de color
 plt.figure()
@@ -280,7 +280,7 @@ plt.colorbar(label="Distancia al origen")
 plt.title("Dispersión con Densidad")
 print("x4:", x4)
 print("y4:", y4)
-plt.savefig("graficas_generadas4.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_14.jpg", dpi=300) # Alta resolución
 
 # 15. Gráfico de contorno lleno
 plt.figure(figsize=(10, 6))
@@ -289,7 +289,7 @@ plt.colorbar(label="Valor de Z")
 plt.title(r"Contorno Lleno: $z = \cos(x) + \sin(y)$")
 print("X:", X)
 print("Y:", Y)
-plt.savefig("graficas_generadas5.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_15.jpg", dpi=300) # Alta resolución
 
 # ----------------------------------
 # 3. Histogramas
@@ -313,4 +313,73 @@ plt.hist(data2, bins=30, alpha=0.5, label=r"$\mu=3, \sigma=1.5$", density=True)
 plt.legend()
 print("data1:", data1)
 print("data2:", data2)
-plt.savefig("graficas_generadas7.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_17.jpg", dpi=300) # Alta resolución
+
+# 18. Experimentar con bins
+plt.figure(figsize=(15, 5))
+bins_list = [10, 30, 50]
+for i, bins in enumerate(bins_list, 1):
+    plt.subplot(1, 3, i)
+    plt.hist(data_norm, bins=bins, density=True, alpha=0.7, color='green')
+    plt.title(f"{bins} bins")
+plt.suptitle("punto_18.jpg", dpi=300) # Alta resolución
+
+# 19. Añadir una línea vertical que indique la media de los datos
+data_mean = np.mean(data1)
+plt.figure(figsize=(8, 5))
+plt.hist(data1, bins=30, alpha=0.7, color='blue', edgecolor='black')
+plt.axvline(data_mean, color='red', linestyle='dashed', linewidth=2, label=f'Media: {data_mean:.2f}')
+plt.title("Histograma con línea de la media")
+plt.xlabel("Valor")
+plt.ylabel("Frecuencia")
+plt.legend()
+plt.show()
+
+plt.savefig(
+    'histograma_media.jpg', # nombre
+    dpi=300,                # Calidad (puntos por pulgadas)
+    bbox_inches='tight',    # Eliminar bordes vacios
+    format='jpg'            # Formato: PNG, JPG, PDF, SVG
+)
+
+# 20. Histogramas superpuestos con colores y transparencias diferentes
+data3 = np.random.normal(loc=-2, scale=1, size=1000)
+
+plt.figure(figsize=(8, 5))
+plt.hist(data1, bins=30, alpha=0.5, color='blue', edgecolor='black', label='Data 1')
+plt.hist(data3, bins=30, alpha=0.5, color='green', edgecolor='black', label='Data 3')
+plt.title("Histogramas superpuestos de dos conjuntos de datos")
+plt.xlabel("Valor")
+plt.ylabel("Frecuencia")
+plt.legend()
+
+plt.savefig(
+    'histogramas_superpuestos.jpg', # Nombre
+    dpi=300,                        # Calidad (puntos por pulgadas)
+    bbox_inches='tight',            # Eliminar bordes vacios
+    format='jpg'                    # Formato: PNG, JPG, PDF, SVG
+)
+
+# -----------------------------
+# Mostrar todos los gráficos
+# -----------------------------
+plt.tight_layout()
+plt.show()
+
+# 1. Crear carpeta para gráficas
+carpeta = "graficas_generadas"
+os.makedirs(carpeta, exist_ok=True)
+
+# 2. Generar y guardar gráficos
+x = np.linspace(0, 2*np.pi, 100)
+
+plt.figure(figsize=(10, 6))
+x1, y1 = np.random.rand(100), np.random.rand(100)
+plt.scatter(x1, y1, alpha=0.7, edgecolor='k')
+
+plt.title("Graficas_generadas")
+plt.xlabel("X"), plt.ylabel("Y")
+print("x1:", x1)
+print("y1:", y1)
+
+plt.savefig("graficas_generadas.jpg", dpi=300) # Alta resolución
