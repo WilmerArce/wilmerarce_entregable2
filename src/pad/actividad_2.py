@@ -273,7 +273,7 @@ print("Z:", Z)
 plt.savefig("graficas_generadas3.jpg", dpi=300) # Alta resolución
 
 # 14. Scatter con densidad de color
-plt.figure(figsize=(10. 6))
+plt.figure()
 x4, y4 = np.random.randn(1000), np.random.randn(1000)
 plt.scatter(x4, y4, c=np.hypot(x4, y4), cmap='plasma', alpha=0.6, edgecolor='w', linewidth=0.3)
 plt.colorbar(label="Distancia al origen")
@@ -302,7 +302,7 @@ plt.axvline(data_norm.mean(), color='red', linestyle='--', label=f"Media: {data_
 plt.title("Histograma Distribución Normal")
 plt.legend()
 print("data_norm:", data_norm)
-plt.savefig("graficas_generadas6.jpg", dpi=300) # Alta resolución
+plt.savefig("punto_16.jpg", dpi=300) # Alta resolución
 
 # 17. Dos distribuciones superpuestas (con densidad)
 plt.figure(figsize=(10, 6))
