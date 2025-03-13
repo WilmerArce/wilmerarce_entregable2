@@ -272,3 +272,45 @@ print("Y:", Y)
 print("Z:", Z)
 plt.savefig("graficas_generadas3.jpg", dpi=300) # Alta resolución
 
+# 14. Scatter con densidad de color
+plt.figure(figsize=(10. 6))
+x4, y4 = np.random.randn(1000), np.random.randn(1000)
+plt.scatter(x4, y4, c=np.hypot(x4, y4), cmap='plasma', alpha=0.6, edgecolor='w', linewidth=0.3)
+plt.colorbar(label="Distancia al origen")
+plt.title("Dispersión con Densidad")
+print("x4:", x4)
+print("y4:", y4)
+plt.savefig("graficas_generadas4.jpg", dpi=300) # Alta resolución
+
+# 15. Gráfico de contorno lleno
+plt.figure(figsize=(10, 6))
+plt.contourf(X, Y, Z, levels=20, cmap='viridis')
+plt.colorbar(label="Valor de Z")
+plt.title(r"Contorno Lleno: $z = \cos(x) + \sin(y)$")
+print("X:", X)
+print("Y:", Y)
+plt.savefig("graficas_generadas5.jpg", dpi=300) # Alta resolución
+
+# ----------------------------------
+# 3. Histogramas
+# ----------------------------------
+# 16. Histograma normal (con densidad)
+plt.figure(figsize=(10, 6))
+data_norm = np.random.normal(0, 1, 1000)
+plt.hist(data_norm, bins=30, density=True, alpha=0.7, edgecolor='black', color='skyblue')
+plt.axvline(data_norm.mean(), color='red', linestyle='--', label=f"Media: {data_norm.mean():.2f}")
+plt.title("Histograma Distribución Normal")
+plt.legend()
+print("data_norm:", data_norm)
+plt.savefig("graficas_generadas6.jpg", dpi=300) # Alta resolución
+
+# 17. Dos distribuciones superpuestas (con densidad)
+plt.figure(figsize=(10, 6))
+data1 = np.random.normal(0, 1, 1000)
+data2 = np.random.normal(3, 1.5, 1000)
+plt.hist(data1, bins=30, alpha=0.5, label=r"$\mu=0, \sigma=1$", density=True)
+plt.hist(data2, bins=30, alpha=0.5, label=r"$\mu=3, \sigma=1.5$", density=True)
+plt.legend()
+print("data1:", data1)
+print("data2:", data2)
+plt.savefig("graficas_generadas7.jpg", dpi=300) # Alta resolución
