@@ -322,7 +322,11 @@ for i, bins in enumerate(bins_list, 1):
     plt.subplot(1, 3, i)
     plt.hist(data_norm, bins=bins, density=True, alpha=0.7, color='green')
     plt.title(f"{bins} bins")
-plt.suptitle("punto_18.jpg", dpi=300) # Alta resolución
+# Eliminar dpi de suptitle
+plt.suptitle("punto_18.jpg",) # Título de la figura sin dpi
+
+# Guardar la figura con dpi
+plt.savefig("punto_18.jpg", dpi=300) # correcto: solo al guardar la figura
 
 # 19. Añadir una línea vertical que indique la media de los datos
 data_mean = np.mean(data1)
