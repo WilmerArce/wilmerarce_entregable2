@@ -7,7 +7,10 @@
 1,1,Ventas de frutas,"             Granadilla  Tomates
 ventas_2021          20       50
 ventas_2022          49      100"
-2,2,,14
+2,2,serie de utensilios,"CUCHARAS     3
+TENEDORES    2
+CUCHILLOS    4
+PLATO        5"
 3,3,,15
 4,4,,16
 5,5,,punto_5.csv

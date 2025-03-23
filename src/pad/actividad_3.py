@@ -37,9 +37,17 @@ class actividad3:
         print("punto_2") 
 
     def punto_3(self):
-        self.df.loc[2,"resultado"] = len(self.df)+2
-        print("punto_3") 
-        
+        utensilios = pd.Series({
+            'CUCHARAS': 3,
+            'TENEDORES': 2,
+            'CUCHILLOS': 4,
+            'PLATO': 5
+        }, index=['CUCHARAS', 'TENEDORES', 'CUCHILLOS', 'PLATO'])
+        self.df.loc[2,"detalle"] = "serie de utensilios"
+        self.df.loc[2,"resultado"] = utensilios.to_string()
+        print("punto_3")
+        print("utensilios") 
+
     def punto_4(self):
         self.df.loc[3,"resultado"] = len(self.df)+3
         print("punto_4") 
