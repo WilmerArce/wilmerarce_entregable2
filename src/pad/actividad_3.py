@@ -2,29 +2,44 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import csv
 
 class actividad3:
     def __init__(self):
-        self.ruta_raiz=os.path.abspath(os.getcwd())
+        self.ruta_raiz = os.path.abspath(os.getcwd())
         self.ruta_act2 = "{}/src/pad/actividad_3/".format(self.ruta_raiz)
         datos = {
-            "n_punto": [1,2,3,4,5,6,7,8,9,10,11,12],
+            "n_punto": [0,1,2,3,4,5,6,7,8,9,10,11],
             "detalle":["Crea un DataFrame frutas que luzca así","","","","","","","","","","",""],
-            "resultado":[0,0,0,0,0,0,0,0,0,0,0,0],
-            
+            "resultado":[0,0,0,0,0,0,0,0,0,0,0,0],    
         }
         self.df = pd.DataFrame(datos)
+        self.df["resultado"] = self.df["resultado"].astype(object) # Convertimos a tipo de object
         print(self.ruta_raiz)
         
     def punto_1(self):
-        self.df.loc[0,"resultado"] = len(self.df)+0
-        print("punto_1")     
+        self.frutas = pd.DataFrame({ # Guardamos como atributo para reutilizar
+            "Frutas": ["Manzana", "Banana", "Naranja", "Uva"],
+            "Cantidad": [10, 15, 8, 20],
+            "Precio": [0.5, 0.3, 0.6, 0.4]
+        })
+        self.frutas["Precio_TOTAL"] = self.frutas["Cantidad"] * self.frutas["Precio"]
+        self.df.loc[0, "resultado"] = self.frutas.to_string()
+        print("punto_1") 
+
     def punto_2(self):
-        self.df.loc[1,"resultado"] = len(self.df)+1
+        ventas_frutas = pd.DataFrame({
+            "Granadilla": [20, 49],
+            "Tomates": [50, 100]
+        }, index=["ventas_2021", "ventas_2022"])
+        self.df.loc[1, "detalle"] = "Ventas de frutas"
+        self.df.loc[1, "resultado"] = ventas_frutas.to_string()
         print("punto_2") 
+
     def punto_3(self):
         self.df.loc[2,"resultado"] = len(self.df)+2
         print("punto_3") 
+        
     def punto_4(self):
         self.df.loc[3,"resultado"] = len(self.df)+3
         print("punto_4") 
@@ -68,6 +83,6 @@ class actividad3:
         self.punto_11()
         self.punto_12()
         self.df.to_csv("actividad3.csv")
-        
+
 act = actividad3()
 act.ejecutar()

@@ -1,13 +1,19 @@
 ,n_punto,detalle,resultado
-0,1,Crea un DataFrame frutas que luzca así,12
-1,2,,13
-2,3,,14
-3,4,,15
-4,5,,16
-5,6,,punto_5.csv
-6,7,,18
-7,8,,19
-8,9,,20
-9,10,,21
-10,11,,22
-11,12,,23
+0,0,Crea un DataFrame frutas que luzca así,"    Frutas  Cantidad  Precio  Precio_TOTAL
+0  Manzana        10     0.5           5.0
+1   Banana        15     0.3           4.5
+2  Naranja         8     0.6           4.8
+3      Uva        20     0.4           8.0"
+1,1,Ventas de frutas,"             Granadilla  Tomates
+ventas_2021          20       50
+ventas_2022          49      100"
+2,2,,14
+3,3,,15
+4,4,,16
+5,5,,punto_5.csv
+6,6,,18
+7,7,,19
+8,8,,20
+9,9,,21
+10,10,,22
+11,11,,23

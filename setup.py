@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="actividad_2",
+    name="actividades", # Cambié el nombre a algo más general
     version="0.0.1",
     author="wilmer arce",
     author_email="",
     description="",
-    py_modules=["actividad_2"],
+    py_modules=["actividad_2", "actividad_3"],
     install_requires=[
         "pandas",
         "openpyxl",
