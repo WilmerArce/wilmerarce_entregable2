@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import os
 import csv
 
-
 class actividad3:
     def __init__(self, ruta_dataset):
         self.ruta_raiz = os.path.abspath(os.getcwd())
@@ -15,7 +14,7 @@ class actividad3:
             "resultado":[0,0,0,0,0,0,0,0,0,0,0,0],    
         }
         self.df = pd.DataFrame(datos)
-        self.df["resultado"] = self.df["resultado"].astype(object) 
+        self.df["resultado"] = self.df["resultado"].astype(object) # Convertimos a tipo de object
         print(self.ruta_raiz)
 
         try:
@@ -29,7 +28,7 @@ class actividad3:
             self.review = pd.DataFrame()      
 
     def punto_1(self):
-        self.frutas = pd.DataFrame({ 
+        self.frutas = pd.DataFrame({ # Guardamos como atributo para reutilizar
             "Frutas": ["Manzana", "Banana", "Naranja", "Uva"],
             "Cantidad": [10, 15, 8, 20],
             "Precio": [0.5, 0.3, 0.6, 0.4]
@@ -60,9 +59,11 @@ class actividad3:
         print("utensilios") 
 
     def punto_4(self):
-        total_filas = len(self.review) 
-        self.df.loc[3,"resultado"] = total_filas + 3 
+        # Usar el dataset 'review' en lugar de 'self.df'
+        total_filas = len(self.review) # Número de filas en el dataset Wine Reviews
+        self.df.loc[3,"resultado"] = total_filas + 3 # Sumar 3 al total de filas de review
         self.df.loc[3,"detalle"] = "Longitud del dataset Wine Reviews más 3"
+        ruta_archivo = r"C:\repositorios\wilmerarce_entregable2\archive (2)\winemag-data-130k-v2.csv"
         print("punto_4") 
 
     def punto_5(self):
@@ -113,6 +114,6 @@ class actividad3:
         self.df.to_csv("actividad3.csv", index=False) # Guarda sin el indice
 
 if __name__ == "__main__":
-    ruta_archivo = r"C:\repositorios\wilmerarce_entregable2\archive (2)\winemag-data-130k-v2.csv"
-    act = actividad3(ruta_archivo)
+    act = actividad3("C:\repositorios\wilmerarce_entregable2\archive (2)\winemag-data-130k-v2.csv")
     act.ejecutar()
+
